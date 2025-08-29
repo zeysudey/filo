@@ -1,16 +1,16 @@
 #include "philo.h"
 
-int check_philosopher_death(t_philo *philo)
+int check_philo_death(t_philo *philo)
 {
     long current_time;
-    long time_since_last_meal;
+    long last_meal;
     
     pthread_mutex_lock(&philo->table->table_mutex);
     current_time = get_time();
-    time_since_last_meal = current_time - philo->last_meal_time;
+    last_meal = current_time - philo->last_meal_time;
     pthread_mutex_unlock(&philo->table->table_mutex);
     
-    if (time_since_last_meal > philo->table->time_to_die)
+    if (last_meal > philo->table->time_to_die)
     {
         stop_simulation(philo->table);
         
@@ -84,7 +84,7 @@ void *monitor_routine(void *arg)
         i = 0;
         while (i < table->philo_count && !is_simulation_stopped(table))
         {
-            if (check_philosopher_death(&table->philos[i]))
+            if (check_philo_death(&table->philos[i]))
             {
                 break;
             }

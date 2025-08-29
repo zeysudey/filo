@@ -1,6 +1,6 @@
 #include "philo.h"
 
-int create_philosopher_threads(t_table *table)
+int create_philo_threads(t_table *table)
 {
     int i;
 
@@ -51,7 +51,7 @@ void join_all_threads(t_table *table, pthread_t monitor_thread)
     }
 }
 
-void join_philosopher_threads(t_table *table)
+void join_philo_threads(t_table *table)
 {
     int i;
 

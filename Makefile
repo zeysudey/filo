@@ -1,5 +1,5 @@
 NAME = philo
-CFLAGS = -Wall -Wextra -Werror -g -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread
 
 SRCS = main.c utils.c check_args.c init.c actions.c monitor.c threads.c
 

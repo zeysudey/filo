@@ -7,11 +7,12 @@ void think(t_philo *philo)
 
 void eat(t_philo *philo)
 {
-    log_status(philo->id, "is eating", philo->table);
     pthread_mutex_lock(&philo->table->table_mutex);
     philo->last_meal_time = get_time();
     philo->meal_count++;
     pthread_mutex_unlock(&philo->table->table_mutex);
+    //buradaki log kısmı
+    log_status(philo->id, "is eating", philo->table);
     usleep(philo->table->time_to_eat * 1000);
 }
 

@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     if (check_init(argv, &table) != 0)
         return (1);
 
-    if (create_philosopher_threads(&table) != 0)
+    if (create_philo_threads(&table) != 0)
     {
         cleanup(&table);
         return (1);
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 
     if (create_monitor_thread(&table, &monitor_thread) != 0)
     {
-        join_philosopher_threads(&table);
+        join_philo_threads(&table);
         cleanup(&table);
         return (1);
     }

@@ -17,8 +17,6 @@ int init_table(t_table *table, char **argv)
     
     table->simulation_stop = 0;
     table->start_time = get_time();
-    memset(forks, 0, sizeof(t_fork) * table->philo_count);
-    memset(philos, 0, sizeof(t_philo) * table->philo_count);
     table->forks = forks;
     table->philos = philos;
     if (pthread_mutex_init(&table->print_mutex, NULL) != 0)
